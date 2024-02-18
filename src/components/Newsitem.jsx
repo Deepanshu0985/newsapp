@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 export default class Newsitem extends Component {
   render() {
-    let {title, description} = this.props;
+    let {title, description,imageurl,url} = this.props;
     return (
-        <div class="card" style={{width: "18rem;"}}>
-            <img src="https://images.indianexpress.com/2024/02/amit-shaaah.jpg" class="card-img-top" alt="..."/>
-            <div class="card-body">
-                <h5 class="card-title">{title}</h5>
-                <p class="card-text">{description}</p>
-                <a href="#" class="btn btn-sm btn-primary">Read more</a>
+        <div className="card" style={{width: "18rem"}}>
+            <img src={imageurl} className="card-img-top" alt="..."/>
+            <div className="card-body">
+                <h5 className="card-title">{title +"..."}</h5>
+                <p className="card-text">{description +"..."}</p>
+                <a href={url} target='_blank' className="btn btn-sm btn-primary">Read more</a>
             </div>
         </div>
           
