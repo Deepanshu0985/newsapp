@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Newsitem from './Newsitem'
+import Spinner from './Spinner';
 
 
 
@@ -20,13 +21,15 @@ export default class Newspage extends Component {
     }
 
     async componentDidMount(){
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&pageSize=12`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&pageSize=12`;
         let data =  await fetch(url);
+        this.setState({loading : true})
         let parseddata = await data.json(); 
         console.log(parseddata.totalResults);
         this.setState({articles: parseddata.articles,
             page:this.state.page ,
-            result : parseddata.totalResults
+            result : parseddata.totalResults,
+            loading:false
             
         });
        
@@ -34,27 +37,31 @@ export default class Newspage extends Component {
     }
 
     handlenextclick =async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${this.state.page+1}&pageSize=12`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${this.state.page+1}&pageSize=12`;
         let data =  await fetch(url);
+        this.setState({loading : true})
         let parseddata = await data.json(); 
         console.log(parseddata);
         this.setState({
             page:this.state.page+1,
             articles: parseddata.articles,
-            result : parseddata.totalResults
+            result : parseddata.totalResults,
+            loading:false
              
         });       
     }
 
     handleprevclick =async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${this.state.page-1}&pageSize=12`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${this.state.page-1}&pageSize=12`;
         let data =  await fetch(url);
+        this.setState({loading : true})
         let parseddata = await data.json(); 
         console.log(parseddata);
         this.setState({
             page:this.state.page-1,
             articles: parseddata.articles,
-            result : parseddata.totalResults
+            result : parseddata.totalResults,
+            loading: false
         })
 
     }
@@ -63,10 +70,11 @@ export default class Newspage extends Component {
     return (
      
         <div className='container my-2'>
-            <h2>Top - Headlines</h2>
+            <h2 className='text-center' style={{marginTop:"25px", marginBottom:"50px"}}> Top - Headlines</h2>
+            {this.state.loading && <Spinner />}
             <div className="row">
                 {
-                    this.state.articles.map((element)=>{
+                    !this.state.loading && this.state.articles.map((element)=>{
                     
                         return  <div className='col-md-3 ' key={element.url}>
                                     <Newsitem title = {element.title?element.title.slice(0,50):" "} description={element.description ? element.description.slice(0,100):" "} imageurl = {element.urlToImage?element.urlToImage:"https://icrier.org/wp-content/uploads/2022/09/Event-Image-Not-Found.jpg"} url = {element.url}/>
