@@ -1,12 +1,11 @@
 import Navbar from "./components/Navbar";
 import { Component} from 'react'
 import Newspage from "./components/Newspage";
-import Newsitem from "./components/Newsitem";
-import Spinner from "./components/Spinner";
+// import Newsitem from "./components/Newsitem";
+// import Spinner from "./components/Spinner";
 
 import {
   BrowserRouter,
-  Link,
   Route,
   Routes,
 } from "react-router-dom";
@@ -33,7 +32,7 @@ export default class App extends Component {
   }
 }
 
-{/* <Route path="sports" element={<Newspage category="sports"/>} /> */}
+
 
 
 
