@@ -3,21 +3,15 @@ import  './spinner.css'
 export default class Spinner extends Component {
   render() {
     return (
-        <div className="pl cent">
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__dot"></div>
-            <div className="pl__text">Loading…</div>
-        </div>
+        
+      <div className="loadingspinner">
+        <div id="square1"></div>
+        <div id="square2"></div>
+        <div id="square3"></div>
+        <div id="square4"></div>
+        <div id="square5"></div>
+        <p id="load">loading</p>
+      </div>
         
     )
   }
