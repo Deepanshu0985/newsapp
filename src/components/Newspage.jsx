@@ -18,7 +18,8 @@ export default class Newspage extends Component {
             articles : [],
             loading : false,
             page : 1,
-            result : 0
+            result : 0,
+            // apikey : ''
            
                        
         }
@@ -27,9 +28,10 @@ export default class Newspage extends Component {
     }
 
     async componentDidMount(){
+        console.log(this.props.apikey);
         console.log("called");
         this.props.setprog(30);
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${1}&pageSize=5`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.apikey}&page=${1}&pageSize=5`;
         let data =  await fetch(url);
         this.props.setprog(50);
         let parseddata = await data.json(); 
@@ -52,7 +54,7 @@ export default class Newspage extends Component {
         // Update page in setState callback
         this.props.setprog(30);
         this.setState(page => ({ page: this.state.page + 1 }), async () => {
-            let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=bdcbde0a23a340aa83e3ba4f7c092422&page=${this.state.page}&pageSize=5`;
+            let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=5`;
             let data = await fetch(url);
             this.props.setprog(50);
             this.setState({ loading: true });

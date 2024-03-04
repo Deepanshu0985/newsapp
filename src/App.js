@@ -12,6 +12,8 @@ export default class App extends Component {
   setprog = (progress)=>{
     this.setState({progress:progress});
   }
+  apikey = process.env.REACT_APP_NEWS_API_KEY;
+   
   render() {
     return (
       <BrowserRouter>
@@ -22,14 +24,14 @@ export default class App extends Component {
           height={3}
         />
         <Routes>
-          <Route exact path="/" element={<Newspage setprog ={this.setprog} key="general" category="general" />} />
-          <Route exact path="/sports" element={<Newspage setprog ={this.setprog} key="sports" category="sports" />} />
-          <Route exact path="/science" element={<Newspage setprog ={this.setprog} key="science" category="science" />} />
-          <Route exact path="/health" element={<Newspage setprog ={this.setprog} key="health" category="health" />} />
-          <Route exact path="/technology" element={<Newspage setprog ={this.setprog} key="technology" category="technology" />} />
-          <Route exact path="/entertainment" element={<Newspage setprog ={this.setprog} key="entertainment" category="entertainment" />} />
-          <Route exact path="/general" element={<Newspage setprog ={this.setprog} key="general" category="general" />} />
-          <Route exact path="/business" element={<Newspage setprog ={this.setprog} key="business" category="business" />} />
+          <Route exact path="/" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="general" category="general" />} />
+          <Route exact path="/sports" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="sports" category="sports" />} />
+          <Route exact path="/science" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="science" category="science" />} />
+          <Route exact path="/health" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="health" category="health" />} />
+          <Route exact path="/technology" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="technology" category="technology" />} />
+          <Route exact path="/entertainment" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="entertainment" category="entertainment" />} />
+          <Route exact path="/general" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="general" category="general" />} />
+          <Route exact path="/business" element={<Newspage apikey={this.apikey} setprog ={this.setprog} key="business" category="business" />} />
         </Routes>
       </BrowserRouter>
     );
