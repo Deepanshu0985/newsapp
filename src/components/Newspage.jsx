@@ -56,7 +56,7 @@ export default function Newspage(props) {
 
         <>
      
-            <h2 className='text-center' style={{marginTop:"25px", marginBottom:"50px"}}> Top - {capitalize(props.category)} Headlines</h2>
+            <h2 className='text-center' style={{marginTop:"100px", marginBottom:"50px"}}> Top - {capitalize(props.category)} Headlines</h2>
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}

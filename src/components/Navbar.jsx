@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Navabar() {
         return(
             <div>
-                <nav className="navbar bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
+                <nav className="navbar bg-dark border-bottom fixed-top border-body navbar-expand-lg" data-bs-theme="dark">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="#">TaazaKhabar - News</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
