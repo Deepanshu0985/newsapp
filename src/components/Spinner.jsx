@@ -1,7 +1,7 @@
-import React, { Component } from 'react' 
+import React from 'react' 
 import  './spinner.css'
-export default class Spinner extends Component {
-  render() {
+export default function Spinner()  {
+  
     return (
         
       <div className="loadingspinner">
@@ -14,5 +14,5 @@ export default class Spinner extends Component {
       </div>
         
     )
-  }
+
 }
